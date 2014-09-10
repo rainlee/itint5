@@ -3,6 +3,20 @@
 /*
 void preProcess(int &x, int &y, int &x2, int &y2)
 {
+    if ((x < 0) || (x2 < 0))
+    {
+        int minx = min(x, x2);  // 偏移到正数
+        int k = -minx;
+        x += k;
+        x2 += k;
+    }
+    if ((y < 0) || (y2 < 0))
+    {
+        int miny = min(y, y2);  // 偏移到正数
+        int k = -miny;
+        y += k;
+        y2 += k;
+    }
     if (x == x2)
     {
         if (y > y2)
@@ -48,14 +62,14 @@ bool canJump(int x, int y, int x2, int y2) {
     {
         for (int j = 0; j < m; ++j)
         {
-            if (!dp[0][0])
+            if (!dp[i][j])
                 continue;
             for (int k = 0; k < 8; ++k)
             {
                 int row = i + x + directions[k][0];
                 int col = j + y + directions[k][1];
                 if ((row >= x) && (row <= x2) && (col >= y) && (col <= y2))
-                    dp[i][j] = true;
+                    dp[row-x][col-y] = true;
                 if ((row == x2) && (col == y2))
                     break;
             }
@@ -65,6 +79,7 @@ bool canJump(int x, int y, int x2, int y2) {
 }
 */
 
+// 法1 过不了……
 // 由于棋盘无限大，所以马能够到达任一位置。
 // 为了证明这个结论，可以先画图证明马能够到达离它距离为1的上下左右四个位置。
 // 然后依次向外扩展，就可以到达任一位置。
