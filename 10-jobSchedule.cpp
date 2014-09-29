@@ -13,7 +13,7 @@ typedef int JobID;
  * 合法的任务序列请存放在参数result中（已经分配空间，不需要push_back）
  */
 bool jobSchedule(const map<JobID, vector<JobID> > &deps, int n,
-                                   vector<JobID> &result) {
+                                  vector<JobID> &result) {
     map<JobID, vector<JobID> > mgraph;  // 顶点 - 边
     vector<int> edges(n+1, 0);   // 顶点未处理的边数，入度
     queue<JobID> q;              // 入度为0的集合
