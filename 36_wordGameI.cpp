@@ -1,8 +1,8 @@
-// BFS / DFS + �������
-// BFS�Ǵ���ģ�����
-// ["AB","BC"], "ABCB"��Ӧ�÷���true��bfs����false
-// ��Ϊbfsÿ�ν���Χ�ɷ��ʵ㶼���Ϊ�ѷ���true����ʵ������ʱ��û�з��ʵ��õ㡭��
-// bfs�Ĵ���Ҳ��ͨ�����в�����������Ϊ����������ǿ
+// BFS / DFS + 标记数组
+// BFS是错误的，反例
+// ["AB","BC"], "ABCB"，应该返回true，bfs返回false
+// 因为bfs每次将周围可访问点都标记为已访问true，而实际上这时候还没有访问到该点……
+// bfs的代码也能通过所有测试用例，因为测试用例不强
 int directions[4][2] = {{-1,0}, {0,1}, {1,0}, {0, -1}};
 bool dfs(vector<vector<char> > &grid, int x, int y, string &pattern, int k, vector<vector<bool> > &visited)
 {
