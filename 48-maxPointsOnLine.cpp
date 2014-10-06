@@ -42,6 +42,7 @@ int maxPointsOnLine_1(vector<Point> &points) {
 
 // 法3：仍然是枚举点
 // 不用map了，之间把所有的斜率存下来，然后排序，找出斜率相同最大的
+// 时间复杂度O(n^2 * logn) 空间复杂度O(n)
 int maxPointsOnLine_2(vector<Point> &points) {
     if (points.size() < 3)
         return points.size();
